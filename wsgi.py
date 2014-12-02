@@ -4,6 +4,7 @@ import jinja2
 
 virtenv = os.environ['OPENSHIFT_PYTHON_DIR'] + '/virtenv/'
 virtualenv = os.path.join(virtenv, 'bin/activate_this.py')
+repodir = os.environ['OPENSHIFT_REPO_DIR']
 try:
     execfile(virtualenv, dict(__file__=virtualenv))
 except IOError:
@@ -15,7 +16,7 @@ except IOError:
 
 def application(environ, start_response):
 
-    templateLoader = jinja2.FileSystemLoader(searchpath="templates/")
+    templateLoader = jinja2.FileSystemLoader(searchpath=repodir + "/templates/")
     env = jinja2.Environment(loader=templateLoader)
     ctype = 'text/plain'
     if environ['PATH_INFO'] == '/health':
