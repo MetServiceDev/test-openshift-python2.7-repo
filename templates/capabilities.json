@@ -1,0 +1,9 @@
+{
+    "capabilities":
+    [
+        {
+            "api-key": "vtimeseries",
+            "description": "Versioned timeseries forecast data." 
+        }
+    ]
+}

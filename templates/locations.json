@@ -1,0 +1,11 @@
+{
+    "locations":
+    [
+        {
+            "api-key": "07300",
+            "name": "Auckland Aero AWS",
+            "latitude": 43.1242, 
+            "longitude": -166.1242 
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "products":
+    [
+        {
+            "api-key": "pdf-profound",
+            "description": "Some awesome PDF data" 
+        },
+        {
+            "api-key": "gfs-raw",
+            "description": "Raw GFS PDF data" 
+        },
+        {
+            "api-key": "ec-raw",
+            "description": "Raw EC PDF data" 
+        }
+    ]
+}

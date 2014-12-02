@@ -25,11 +25,23 @@ def application(environ, start_response):
         response_body = ['%s: %s' % (key, value)
                     for key, value in sorted(environ.items())]
         response_body = '\n'.join(response_body)
+    elif environ['PATH_INFO'] == '/api/':
+        ctype = 'text/json'
+        template = env.get_template('capabilities.json')
+        response_body = str(template.render())
+    elif environ['PATH_INFO'] == '/api/vtimeseries/':
+        ctype = 'text/json'
+        template = env.get_template('vtimeseries.json')
+        response_body = str(template.render())
+    elif environ['PATH_INFO'] == '/api/vtimeseries/pdf-profound/':
+        ctype = 'text/json'
+        template = env.get_template('locations.json')
+        response_body = str(template.render())
     else:
         ctype = 'text/html'
         template = env.get_template('welcome.html')
-        response_body = str(template.render({"title": "Welcome to OpenShift - Deano style", 
-                                "header": "Welcome to your Python application on OpenShift - Deano Style"}))
+        response_body = str(template.render({"title": "OpenShift Python Application", 
+                                "header": "Welcome To An Example RESTFul API For ePD's"}))
 
     status = '200 OK'
     response_headers = [('Content-Type', ctype), ('Content-Length', str(len(response_body)))]
